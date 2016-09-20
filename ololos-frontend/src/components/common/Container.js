@@ -1,14 +1,12 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from "react";
+import BlogHeader from "../common/BlogHeader";
 
 class Container extends React.Component {
 
   render() {
     return (<div className="container">
-        <div className="blog-header">
-          <h1 className="blog-title">The Bootstrap Blog</h1>
-          <p className="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
-        </div>
-
+        <BlogHeader/>
+        <div>ХУЙ В ГОВНЕ</div>
         <div className="row">
           <div className="col-sm-8 blog-main">
             <div className="blog-post">
