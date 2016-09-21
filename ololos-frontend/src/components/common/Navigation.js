@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import {Link, IndexLink} from "react-router";
 
-const Header = () => {
+const Navigation = () => {
   return (
     <div className="blog-masthead">
       <div className="container">
@@ -17,6 +17,6 @@ const Header = () => {
 
 };
 
-Header.propTypes = {};
+Navigation.propTypes = {};
 
-export default Header;
+export default Navigation;
