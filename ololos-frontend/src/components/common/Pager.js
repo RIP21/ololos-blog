@@ -13,4 +13,4 @@ const Pager = () => {
 
 Pager.propTypes = {};
 
-export default Pager
+export default Pager;

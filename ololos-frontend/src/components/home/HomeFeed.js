@@ -11,7 +11,7 @@ const HomeFeed = () => {
       <Pager/>
     </div>
   );
-}
+};
 
 HomeFeed.propTypes = {};
 
