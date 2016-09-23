@@ -1,20 +1,14 @@
 // This component handles the App template used on every page.
 import React, {PropTypes} from "react";
 import Navigation from './common/Navigation';
-import Editor from '../components/common/Editor';
 import Footer from './common/Footer';
 import {connect} from 'react-redux';
 
 class App extends React.Component {
 
-  handleChange(value) {
-    this.setState({value: value})
-  }
-
   render() {
     return (
       <div>
-        <Editor value="Some text" handleChange={this.handleChange.bind(this)}/>
         <Navigation/>
         <div className="container">
           {this.props.children}

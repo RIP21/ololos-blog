@@ -1,16 +1,21 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router';
 
-const BlogPostHeader = () => {
+const BlogPostHeader = ({title, author, date}) => {
   return (
     <div>
-      <h2 className="blog-post-title">Sample blog post</h2>
-      <p className="blog-post-meta">January 1, 2014 by <a
-        href="#">Mark</a>
+      <h2 className="blog-post-title">{title}</h2>
+      <p className="blog-post-meta">{date} by <Link
+        to={`author/${author}`}>{author}</Link>
       </p>
     </div>
   );
 };
 
-BlogPostHeader.propTypes = {};
+BlogPostHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
+};
 
 export default BlogPostHeader;

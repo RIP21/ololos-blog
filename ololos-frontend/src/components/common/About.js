@@ -3,9 +3,13 @@ import React, {PropTypes} from 'react';
 const About = () => {
   return (
     <div className="sidebar-module sidebar-module-inset">
-      <h4>About</h4>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet
-        fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <h4>О нас</h4>
+      <p>Мы, Андрей и Лина, будущая семья унылых IT-шников, как и все люди, путешествуем.
+        После путешествия в Исландию в 2016, мы решили, что пора нам завести свой бложик,
+        на котором мы могли бы писать отчеты, делиться фотками и советами с другими. Но так как Андрей
+        <s>погроммист </s>
+        программист, он не может просто так взять и сделать его на ЖЖ или Medium, поэтому написал его сам.
+        А что за название? Долго мы о нем не думали. Олейник и Лось? Конечно же, "ОЛОЛОСЬ"!</p>
     </div>
   );
 };

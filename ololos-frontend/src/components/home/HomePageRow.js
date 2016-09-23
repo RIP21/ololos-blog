@@ -3,16 +3,18 @@ import BlogSidebar from '../common/BlogSidebar';
 import HomeFeed from './HomeFeed';
 
 
-const HomePageRow = () => {
+const HomePageRow = ({posts}) => {
   return (
     <div className="row">
-      <HomeFeed/>
+      <HomeFeed posts={posts}/>
       <BlogSidebar/>
     </div>
   );
 };
 
-HomePageRow.propTypes = {};
+HomePageRow.propTypes = {
+  posts: PropTypes.array.isRequired
+};
 
 export default HomePageRow;
 
