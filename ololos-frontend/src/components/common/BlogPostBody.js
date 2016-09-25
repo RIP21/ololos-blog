@@ -1,15 +1,15 @@
 import React, {PropTypes} from 'react';
 
-const BlogPostBody = ({body}) => {
+const BlogPostBody = ({post}) => {
 
   return (
-    <div dangerouslySetInnerHTML={{__html: body}}>
+    <div dangerouslySetInnerHTML={{__html: post.body}}>
     </div>
   );
 };
 
 BlogPostBody.propTypes = {
-  body: PropTypes.string
+  post: PropTypes.object.isRequired
 };
 
 export default BlogPostBody;

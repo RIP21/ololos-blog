@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import toastr from 'toastr';
-import {authorsFormattedForDropdown} from './../../selector/selectors';
+import {getById, authorsFormattedForDropdown} from './../../selector/selectors';
 import {withRouter} from 'react-router';
 import _ from 'lodash';
 
@@ -97,14 +97,6 @@ export class ManageCoursePage extends React.Component {
   }
 }
 
-function getCourseById(courses, courseId) {
-  const course = courses.filter(course => course.id == courseId);
-  if (course.length) {
-    return course[0];
-  }
-  return null;
-}
-
 ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
   authors: PropTypes.array.isRequired,
@@ -124,7 +116,7 @@ function mapStateToProps(state, ownProps) {
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 
   if (courseId && state.courses.length > 0) {
-    course = getCourseById(state.courses, courseId);
+    course = getById(state.courses, courseId);
   }
 
   return {

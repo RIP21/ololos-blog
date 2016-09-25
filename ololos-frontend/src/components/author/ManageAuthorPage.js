@@ -6,6 +6,7 @@ import * as authorActions from '../../actions/authorActions';
 import toastr from 'toastr';
 import {withRouter} from 'react-router';
 import _ from 'lodash';
+import {getById} from '../../selector/selectors';
 
 
 class ManageAuthorPage extends React.Component {
@@ -90,20 +91,13 @@ ManageAuthorPage.contextTypes = {
   router: PropTypes.object
 };
 
-function getAuthorById(authors, authorId) {
-  const author = authors.filter(author => author.id == authorId);
-  if (author.length) {
-    return author[0];
-  }
-  return null;
-}
 
 function mapStateToProps(state, ownProps) {
   const authorId = ownProps.params.id;
   let author = {id: '', firstName: '', lastName: ''};
 
   if (authorId && state.authors.length > 0) {
-    author = getAuthorById(state.authors, authorId);
+    author = getById(state.authors, authorId);
   }
   return {
     author,
