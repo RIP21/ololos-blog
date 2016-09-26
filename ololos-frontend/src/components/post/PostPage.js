@@ -36,8 +36,8 @@ class PostPage extends React.Component {
 
 PostPage.propTypes = {
   post: PropTypes.object.isRequired,
-  posts: PropTypes.object.isRequired,
-  errors: PropTypes.array,
+  posts: PropTypes.array.isRequired,
+  errors: PropTypes.object,
   saving: PropTypes.bool
 };
 
