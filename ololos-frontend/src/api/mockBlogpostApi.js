@@ -8,20 +8,20 @@ export const posts = [
     id: 1,
     title: 'Iceland Part 1',
     authorId: 'rip21',
-    postdate: '2016-09-23',
-    body: '<div>Всем привет, это пример поста про Исландию.</div>'
+    postdate: new Date(2016, 8, 23),
+    body: '<h1>Всем привет, это пример поста про Исландию.</h1>'
   }, {
     id: 2,
     title: 'Iceland Part 2',
     authorId: 'rip21',
-    postdate: '2016-09-24',
-    body: '<div>Всем привет, это пример ВТОРОГО поста про Исландию.</div>'
+    postdate: new Date(2016, 8, 24),
+    body: '<h1>Всем привет, это пример ВТОРОГО поста про Исландию.</h1>'
   }, {
     id: 3,
     title: 'Krakow',
     authorId: 'rip21',
-    postdate: '2016-09-25',
-    body: '<div>Всем привет, это пример поста про Краков, какой он классный и все такое.</div>'
+    postdate: new Date(2016, 8, 25),
+    body: '<h1>Всем привет, это пример поста про Краков, какой он классный и все такое.</h1>'
   }
 ];
 
@@ -60,6 +60,7 @@ class BlogpostApi {
           // The server would generate ids and watchHref's for new courses in a real app.
           // Cloning so copy returned is passed by value rather than by reference.
           post.id = generateId();
+          post.postdate = new Date();
           posts.push(post);
         }
 
