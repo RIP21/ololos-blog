@@ -17,12 +17,17 @@ class EditPostPage extends React.Component {
       post: Object.assign({}, props.post),
       errors: {},
       saving: false,
-      transformedBody: props.transformedBody
+      transformedBody: toMarkdown(props.post.body)
     };
 
     this.updatePostState = this.updatePostState.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
     this.savePost = this.savePost.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({transformedBody: toMarkdown(this.props.post.body)})
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -101,7 +106,6 @@ function mapStateToProps(state, ownProps) {
     post = getById(state.posts, postId);
   }
   return {
-    transformedBody: toMarkdown(post.body),
     post,
     posts: state.posts
   };

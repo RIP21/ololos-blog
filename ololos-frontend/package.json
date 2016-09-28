@@ -1,6 +1,6 @@
 {
-  "name": "ps-redux",
-  "version": "1.0.0",
+  "name": "ololos-frontend",
+  "version": "0.0.1",
   "description": "Starter kit for React and Redux Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
@@ -17,21 +17,22 @@
     "build": "babel-node tools/build.js",
     "postbuild": "babel-node tools/distServer.js"
   },
-  "author": "Cory House",
+  "author": "Andrii Los",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "6.8.0",
     "bootstrap": "3.3.6",
     "jquery": "2.2.3",
+    "marked": "^0.3.6",
     "react": "15.0.2",
     "react-dom": "15.0.2",
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
     "react-router-redux": "4.0.4",
-    "react-simplemde-editor": "^3.6.1",
+    "react-simplemde-editor": "3.6.2",
     "redux": "3.5.2",
     "redux-thunk": "2.0.1",
-    "to-markdown": "^3.0.1",
+    "to-markdown": "3.0.1",
     "toastr": "2.1.2"
   },
   "devDependencies": {
@@ -43,13 +44,13 @@
     "babel-preset-react": "6.5.0",
     "babel-preset-react-hmre": "1.1.1",
     "babel-register": "6.8.0",
-    "cheerio": "^0.20.0",
+    "cheerio": "0.20.0",
     "colors": "1.1.2",
-    "compression": "^1.6.1",
+    "compression": "1.6.1",
     "cross-env": "1.0.7",
     "css-loader": "0.23.1",
     "enzyme": "2.2.0",
-    "eslint": "^3.5.0",
+    "eslint": "3.6.0",
     "eslint-config-airbnb": "^11.1.0",
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
@@ -78,6 +79,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coryhouse/pluralsight-redux-starter"
+    "url": "https://github.com/rip21/ololos-blog"
   }
 }
