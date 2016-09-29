@@ -22,4 +22,6 @@ export default function courseReducer(state = initialState.courses, action) {
     default:
       return state;
   }
+
+
 }
