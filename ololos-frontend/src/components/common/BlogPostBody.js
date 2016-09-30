@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 const BlogPostBody = ({post}) => {
 
   return (
-    <div dangerouslySetInnerHTML={{__html: post.body}}>
+    <div dangerouslySetInnerHTML={{__html: post.body}}> //TODO change to https://github.com/rexxars/react-markdown
     </div>
   );
 };
