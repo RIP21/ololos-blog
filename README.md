@@ -51,10 +51,10 @@ npm run test:watch
 ```
 ### Not happy yet? Want to debug it step by step in the IDEA/WebStorm?  
 For IDEA: 
-1. Install node plugin.
-2. Go to the run configurations
-3. Create new Mocha test configuration and set it up this way (bellow)
-4. PROFIT! Now you can just run this and it will launch test file by IDE so you can debug it here.
+ 1. Install node plugin.
+ 2. Go to the run configurations
+ 3. Create new Mocha test configuration and set it up this way (bellow)
+ 4. PROFIT! Now you can just run this and it will launch test file by IDE so you can debug it here.
 
 ```
 Working dir: {YOUR FULL PATH}\project-template\project-frontend-template
