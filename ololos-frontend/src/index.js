@@ -11,7 +11,7 @@ import {loadAuthors} from './actions/authorActions';
 import {loadPosts} from './actions/postActions';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/toastr/build/toastr.min.css";
-import "../node_modules/react-simplemde-editor/dist/simplemde.min.css";
+import "../node_modules/simplemde/dist/simplemde.min.css";
 import "./styles/styles.css";
 
 const store = configureStore();

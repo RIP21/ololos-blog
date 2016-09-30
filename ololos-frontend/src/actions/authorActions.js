@@ -53,7 +53,7 @@ export function deleteAuthor(id) {
 
 
 export function saveAuthor(author) {
-  return function (dispatch, getState) {
+  return function (dispatch) {
     dispatch(beginAjaxCall());
     return AuthorApi.saveAuthor(author).then((author) => {
       author.id ? dispatch(updateAuthorSuccess(author)) :

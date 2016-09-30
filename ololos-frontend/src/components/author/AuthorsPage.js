@@ -53,7 +53,7 @@ AuthorsPage.propTypes = {
 };
 
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     authors: state.authors
   };

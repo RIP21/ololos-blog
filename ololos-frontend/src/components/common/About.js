@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 const About = () => {
   return (
@@ -14,6 +14,5 @@ const About = () => {
   );
 };
 
-About.propTypes = {};
 
 export default About;

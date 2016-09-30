@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 const Pager = () => {
   return (
@@ -11,6 +11,5 @@ const Pager = () => {
   );
 };
 
-Pager.propTypes = {};
 
 export default Pager;

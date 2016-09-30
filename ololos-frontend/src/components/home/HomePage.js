@@ -27,7 +27,7 @@ HomePage.propTypes = {
   posts: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     posts: state.posts
   };

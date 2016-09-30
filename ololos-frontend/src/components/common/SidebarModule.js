@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 
 const SidebarModule = () => {
   return (
@@ -32,6 +32,5 @@ const SidebarModule = () => {
   );
 };
 
-SidebarModule.propTypes = {};
 
 export default SidebarModule;

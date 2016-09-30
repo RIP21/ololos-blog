@@ -32,7 +32,7 @@ export function loadPosts() {
 }
 
 export function savePost(post) {
-  return function (dispatch, getState) {
+  return function (dispatch) {
     dispatch(beginAjaxCall());
     return BlogPostApi.save(post).then((savedPost) => {
       post.id ? dispatch(updatePostSuccess(savedPost)) :

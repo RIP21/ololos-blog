@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import SimpleMDE from 'react-simplemde-editor/src';
+import SimpleMDE from '../simplemde/react-simplemde-editor';
 import TextInput from '../common/TextInput';
 
 const EditPostForm = ({transformedBody, saving, onSave, post, onChange, errors, handleEditorChange}) => {

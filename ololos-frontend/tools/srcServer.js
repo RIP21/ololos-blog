@@ -10,6 +10,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.dev';
+// import proxyMiddleware from 'http-proxy-middleware';
 
 const bundler = webpack(config);
 
@@ -24,6 +25,9 @@ browserSync({
 
     middleware: [
       historyApiFallback(),
+
+      // Only needed when testing against real backend, redirects /api calls to Spring Boot backend.
+      //proxyMiddleware('/api', {target: 'http://localhost:8080', changeOrigin: true}),
 
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath

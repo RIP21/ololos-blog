@@ -15,6 +15,6 @@ export function getById(entries, id) {
     }
     return null;
   }
-  console.error("Entity don't have 'id' field to do search by entries, please provide properly formatted objects only");
+  console.error("Entity don't have 'id' field to do search by entries, please provide properly formatted objects only"); // eslint-disable-line
   return null;
 }

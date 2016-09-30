@@ -1,4 +1,4 @@
-import React, {PropTypes} from "react";
+import React from "react";
 
 const BlogHeader = () => {
   return (
@@ -8,7 +8,5 @@ const BlogHeader = () => {
     </div>
   );
 };
-
-BlogHeader.propTypes = {};
 
 export default BlogHeader;

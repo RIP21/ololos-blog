@@ -26,7 +26,7 @@ class EditPostPage extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({transformedBody: toMarkdown(this.props.post.body)});
+    this.setState({transformedBody: toMarkdown(this.props.post.body)}); // eslint-disable-line
   }
 
   componentWillReceiveProps(nextProps) {

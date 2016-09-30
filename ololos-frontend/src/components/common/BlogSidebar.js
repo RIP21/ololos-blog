@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import About from '../common/About';
 import SidebarModule from '../common/SidebarModule';
 
@@ -11,6 +11,5 @@ const BlogSidebar = () => {
   );
 };
 
-BlogSidebar.propTypes = {};
 
 export default BlogSidebar;
