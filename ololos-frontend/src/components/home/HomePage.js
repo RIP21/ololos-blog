@@ -4,6 +4,7 @@ import HomePageRow from "./HomePageRow";
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import * as postsActions  from '../../actions/postActions';
+import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
 class HomePage extends React.Component {
 
@@ -29,7 +30,7 @@ HomePage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: sortNewPostsFirstSelector(state)
   };
 }
 

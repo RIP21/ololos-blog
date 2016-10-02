@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import SimpleMDE from '../simplemde/react-simplemde-editor';
+import SimpleMDE from 'react-simplemde-editor';
 import TextInput from '../common/TextInput';
 
-const EditPostForm = ({transformedBody, saving, onSave, post, onChange, errors, handleEditorChange}) => {
+const EditPostForm = ({saving, onSave, post, onChange, errors, handleEditorChange}) => {
   return (
     <form>
       {post.id == '' ? <h1>Create post</h1> : <h1>Edit post</h1>}
@@ -14,7 +14,7 @@ const EditPostForm = ({transformedBody, saving, onSave, post, onChange, errors, 
         onChange={onChange}
         error={errors.title}
       />
-      <SimpleMDE onChange={handleEditorChange} value={transformedBody} options={{
+      <SimpleMDE onChange={handleEditorChange} value={post.body} options={{
         autofocus: true,
         spellChecker: false
       }}/>
@@ -30,7 +30,6 @@ const EditPostForm = ({transformedBody, saving, onSave, post, onChange, errors, 
 };
 
 EditPostForm.propTypes = {
-  transformedBody: PropTypes.string,
   saving: PropTypes.bool,
   onSave: PropTypes.func,
   post: PropTypes.object,

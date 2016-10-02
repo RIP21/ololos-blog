@@ -6,6 +6,7 @@ import PostList from "./PostList";
 import {browserHistory} from 'react-router';
 import toastr from 'toastr';
 import ToastExceptionsShower from '../../service/toastWrapper';
+import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
 class ManagePostsPage extends React.Component {
 
@@ -56,7 +57,7 @@ ManagePostsPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    posts: state.posts
+    posts: sortNewPostsFirstSelector(state)
   };
 }
 

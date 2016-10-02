@@ -10,19 +10,19 @@ export const posts = [
     title: 'Iceland Part 1',
     authorId: 'rip21',
     postdate: new Date(2016, 8, 23),
-    body: '<h1>Всем привет, это пример поста про Исландию.</h1>'
+    body: '## Всем привет, это пример поста про Исландию.'
   }, {
     id: 2,
     title: 'Iceland Part 2',
     authorId: 'rip21',
     postdate: new Date(2016, 8, 24),
-    body: '<h1>Всем привет, это пример ВТОРОГО поста про Исландию.</h1>'
+    body: '## Всем привет, это пример ВТОРОГО поста про Исландию.'
   }, {
     id: 3,
     title: 'Krakow',
     authorId: 'rip21',
     postdate: new Date(2016, 8, 25),
-    body: '<h1>Всем привет, это пример поста про Краков, какой он классный и все такое.</h1>'
+    body: '## Всем привет, это пример поста про Краков, какой он классный и все такое.'
   }
 ];
 
@@ -32,7 +32,7 @@ function replaceAll(str, find, replace) {
 
 // This would be performed on the server in a real app. Just stubbing in.
 const generateId = () => {
-  return Math.max(...posts.map(post => parseInt(post.id))) + 1;
+  return posts.length ? Math.max(...posts.map(post => parseInt(post.id))) + 1 : 1;
 };
 
 class BlogpostApi {

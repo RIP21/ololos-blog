@@ -1,14 +1,12 @@
 import {combineReducers} from 'redux';
-import courses from './courseReducer';
-import authors from './authorReducer';
 import posts from './postReducer';
 import ajaxCallsInProgress from './ajaxStatusReducer';
+import {routerReducer} from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  courses,
-  authors,
   posts,
   ajaxCallsInProgress,
+  routing: routerReducer
 });
 
 export default rootReducer;

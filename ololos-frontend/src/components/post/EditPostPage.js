@@ -1,7 +1,6 @@
-import marked from "marked";
 import toastr from 'toastr';
 import {connect} from "react-redux";
-import toMarkdown from "to-markdown";
+import objectAssign from "object-assign";
 import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import {getById} from "../../selector/selectors";
@@ -16,8 +15,7 @@ class EditPostPage extends React.Component {
     this.state = {
       post: Object.assign({}, props.post),
       errors: {},
-      saving: false,
-      transformedBody: toMarkdown(props.post.body)
+      saving: false
     };
 
     this.updatePostState = this.updatePostState.bind(this);
@@ -26,14 +24,13 @@ class EditPostPage extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({transformedBody: toMarkdown(this.props.post.body)}); // eslint-disable-line
+    this.setState({post: objectAssign({}, this.props.post)}); // eslint-disable-line
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.post.id != nextProps.post.id) {
-      // Necessary to populate form when existing author is loaded directly.
+      // Necessary to populate form when existing post is loaded directly.
       this.setState({post: Object.assign({}, nextProps.post)});
-      this.setState({transformedBody: toMarkdown(nextProps.post.body)});
     }
   }
 
@@ -45,15 +42,12 @@ class EditPostPage extends React.Component {
   }
 
   handleEditorChange(value) {
-    return this.setState({transformedBody: value});
+    return this.setState({post: objectAssign(this.state.post, {body: value})});
   }
 
   savePost(event) {
     event.preventDefault();
-
     this.setState({saving: true});
-    this.setState({post: Object.assign(this.state.post, {body: marked(this.state.transformedBody)})});
-
     this.props.actions.savePost(this.state.post)
       .then(() => this.redirect())
       .catch((error) => {
@@ -72,7 +66,6 @@ class EditPostPage extends React.Component {
 
     return (
       <EditPostForm post={this.state.post}
-                    transformedBody={this.state.transformedBody}
                     saving={this.state.saving}
                     errors={this.state.errors}
                     onChange={this.updatePostState}
@@ -89,7 +82,6 @@ EditPostPage.propTypes = {
   posts: PropTypes.array.isRequired,
   errors: PropTypes.object,
   saving: PropTypes.bool,
-  transformedBody: PropTypes.string
 };
 
 EditPostPage.contextTypes = {

@@ -1,7 +1,7 @@
 # editorconfig.org
 root = true
 
-[*.js]
+[*.{js,jsx,ts,tsx}]
 indent_style = space
 indent_size = 2
 tab_width=8
@@ -12,3 +12,4 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+
