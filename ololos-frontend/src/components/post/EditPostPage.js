@@ -45,10 +45,17 @@ class EditPostPage extends React.Component {
     return this.setState({post: objectAssign(this.state.post, {body: value})});
   }
 
+  updateOrCreate(post) {
+    const {updatePost, createPost} = this.props.actions;
+    return post.id ? updatePost : createPost;
+  }
+
+
   savePost(event) {
+    const post = this.state.post;
     event.preventDefault();
     this.setState({saving: true});
-    this.props.actions.savePost(this.state.post)
+    this.updateOrCreate(post)(post)
       .then(() => this.redirect())
       .catch((error) => {
         toastr.error(error);
