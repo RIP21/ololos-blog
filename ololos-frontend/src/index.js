@@ -7,6 +7,7 @@ import {Provider} from "react-redux";
 import {Router, browserHistory} from "react-router";
 import routes from "./routes";
 import {loadPosts} from './actions/postActions';
+import {getSession, login, logout} from './actions/authenticationActions';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/toastr/build/toastr.min.css";
 import "../node_modules/simplemde/dist/simplemde.min.css";
@@ -15,6 +16,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 const store = configureStore();
 store.dispatch(loadPosts());
+store.dispatch(getSession());
+store.dispatch(login("user", "password"));
+
 
 
 // Create an enhanced history that syncs navigation events with the store
