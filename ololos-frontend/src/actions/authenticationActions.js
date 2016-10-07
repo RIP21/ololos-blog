@@ -11,9 +11,8 @@ export function login(username, password) {
     return dispatch({
       type: types.LOGIN,
       payload: axios.post('/api/session', {username, password})
-        .then(response => {
-          localStorage.setItem('auth-token', response.headers['x-auth-token']);
-        })
+    }).then(response => {
+      localStorage.setItem('auth-token', response.headers['x-auth-token']);
     });
   };
 }
@@ -23,8 +22,7 @@ export function logout() {
     return dispatch({
       type: types.LOGOUT,
       payload: axios.delete('/api/session')
-        .then(browserHistory.push('login')),
-    });
+    }).then(browserHistory.push('login'));
   };
 }
 

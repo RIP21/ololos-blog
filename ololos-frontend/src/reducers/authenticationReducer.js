@@ -4,7 +4,6 @@ import * as types from '../actions/actionTypes';
 const {isAuthenticated, username, errorMessage, loading} = initialState;
 
 export default function authenticationReducer(state = {isAuthenticated, username, errorMessage, loading} , action) {
-  debugger;
   switch (action.type) {
     case `${types.LOGIN}_FULFILLED`:
       return {

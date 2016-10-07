@@ -2,8 +2,9 @@ import initialState from './initialState';
 
 export default function ajaxStatusReducer(state = initialState.ajaxCallsInProgress, action) {
 
-  const actionTypeEndsWithFulfilled = (type) => {
-    return type.substring(type.length - 10) == '_FULFILLED';
+  const actionTypeEndsWithFulfilledOrRejected = (type) => {
+    return (type.substring(type.length - 10) == '_FULFILLED' ||
+    type.substring(type.length - 9) == '_REJECTED');
   };
 
   const actionTypeEndsWithPending = (type) => {
@@ -12,7 +13,7 @@ export default function ajaxStatusReducer(state = initialState.ajaxCallsInProgre
 
   if (actionTypeEndsWithPending(action.type)) {
     return state + 1;
-  } else if (actionTypeEndsWithFulfilled(action.type)) {
+  } else if (actionTypeEndsWithFulfilledOrRejected(action.type)) {
     return state - 1;
   }
 
