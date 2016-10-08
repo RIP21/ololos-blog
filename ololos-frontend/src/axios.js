@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const setupAxiosInterceptors = onUnauthenticated => {
+const setupAxiosInterceptors = () => {
   const onRequestSuccess = config => {
     var token = localStorage.getItem('auth-token');
     if (token) {
@@ -13,7 +13,6 @@ const setupAxiosInterceptors = onUnauthenticated => {
   const onResponseError = error => {
     if (error.status == 403) {
       localStorage.removeItem('auth-token');
-      onUnauthenticated();
     }
     return Promise.reject(error);
   };

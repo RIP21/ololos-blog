@@ -3,13 +3,32 @@ import React, {PropTypes} from "react";
 import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import {connect} from 'react-redux';
+import toastr from 'toastr';
+import {getSession, logout} from '../actions/authenticationActions';
 
 class App extends React.Component {
+
+  constructor(props, context) {
+    super(props, context);
+    this.onLogout = this.onLogout.bind(this);
+
+  }
+  componentDidMount() {
+    this.props.getSession();
+  }
+
+  onLogout(event) {
+    event.preventDefault();
+    this.props.logout()
+      .then(toastr.success("Logout success!"));
+  }
+
+
 
   render() {
     return (
       <div>
-        <Navigation/>
+        <Navigation onLogout={this.onLogout}/>
         <div className="container">
           {this.props.children}
         </div>
@@ -22,7 +41,9 @@ class App extends React.Component {
 
 App.propTypes = {
   children: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  getSession: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 
@@ -32,4 +53,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {getSession, logout})(App);
