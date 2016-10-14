@@ -3,13 +3,13 @@ package com.ololos.config.redis;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 
-@EnableRedisHttpSession
+@EnableMongoHttpSession
+@Profile("mongodb")
 @Configuration
-@Profile("redis")
-public class ExternalRedisConfig {
+public class ExternalMongoConfig {
     @Bean
     public HeaderHttpSessionStrategy sessionStrategy() {
         return new HeaderHttpSessionStrategy();
