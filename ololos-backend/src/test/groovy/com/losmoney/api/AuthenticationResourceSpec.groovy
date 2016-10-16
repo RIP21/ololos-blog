@@ -25,7 +25,7 @@ class AuthenticationResourceSpec extends AbstractMvcSpec {
 
     def "good authentication"() {
         given:
-            def credentials = [username: 'user', password: 'password']
+            def credentials = [username: 'RIP21', password: 'pass']
 
         when:
             def res = post('/api/session', credentials)
@@ -33,7 +33,7 @@ class AuthenticationResourceSpec extends AbstractMvcSpec {
 
         then:
             res.status == HttpStatus.OK
-            res.json.userName == 'user'
+            res.json.userName == 'RIP21'
             token != null
     }
 
@@ -43,7 +43,7 @@ class AuthenticationResourceSpec extends AbstractMvcSpec {
 
         then:
             res.status == HttpStatus.OK
-            res.json.userName == 'user'
+            res.json.userName == 'RIP21'
     }
 
     def "delete session"() {

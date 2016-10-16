@@ -31,8 +31,8 @@ public class AuthenticationResource {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public User session(HttpSession session) {
-        return (User) session.getAttribute("user");
+    public Object session(HttpSession session) {
+        return session.getAttribute("user");
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
