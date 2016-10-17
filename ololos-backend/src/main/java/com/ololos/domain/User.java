@@ -18,9 +18,14 @@ public class User {
 
     private String username;
     private String password;
-
-
     private List<SimpleGrantedAuthority> roles;
+
+    public User(String id, String username, String password, List<SimpleGrantedAuthority> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.roles = roles;
+    }
 
     public String getId() {
         return id;

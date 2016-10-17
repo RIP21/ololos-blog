@@ -10,17 +10,33 @@ import java.util.Date;
 @Document(collection = "posts")
 public class Post {
 
+    String title;
+    String body;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    Date postdate;
+    @DBRef
+    Author author;
     @Id
     private String id;
 
-    String title;
-    String body;
+    public Post() {
+    }
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    Date postdate;
+    public Post(String title, String body, Date postdate, Author author) {
+        this.title = title;
+        this.body = body;
+        this.postdate = postdate;
+        this.author = author;
+    }
 
-    @DBRef
-    User author;
+    public Post(String id, String title, String body, Date postdate, Author author) {
+        this.id = id;
+        this.title = title;
+        this.body = body;
+        this.postdate = postdate;
+        this.author = author;
+    }
+
 
 
     public String getId() {
@@ -55,36 +71,12 @@ public class Post {
         this.postdate = postdate;
     }
 
-    public User getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Post post = (Post) o;
-
-        if (!id.equals(post.id)) return false;
-        if (!title.equals(post.title)) return false;
-        if (body != null ? !body.equals(post.body) : post.body != null) return false;
-        if (!postdate.equals(post.postdate)) return false;
-        return author.equals(post.author);
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + title.hashCode();
-        result = 31 * result + (body != null ? body.hashCode() : 0);
-        result = 31 * result + postdate.hashCode();
-        result = 31 * result + author.hashCode();
-        return result;
-    }
 }

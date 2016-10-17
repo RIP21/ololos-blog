@@ -1,3 +1,4 @@
+/*
 package com.ololos.api;
 
 import com.ololos.domain.Post;
@@ -37,3 +38,4 @@ public class PostsResource {
         mongoOperations.remove(post);
     }
 }
+*/

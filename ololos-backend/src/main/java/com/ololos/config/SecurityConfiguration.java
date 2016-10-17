@@ -44,10 +44,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(mongoDBUserDetailsService);
     }
 
-/*    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
-    }*/
 }

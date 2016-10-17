@@ -38,6 +38,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.session:spring-session'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
 
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
