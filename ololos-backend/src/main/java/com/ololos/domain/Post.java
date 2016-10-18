@@ -1,7 +1,6 @@
 package com.ololos.domain;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,14 +9,13 @@ import java.util.Date;
 @Document(collection = "posts")
 public class Post {
 
-    String title;
-    String body;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    Date postdate;
-    @DBRef
-    Author author;
     @Id
     private String id;
+    private String title;
+    private String body;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private Date postdate;
+    private Author author;
 
     public Post() {
     }

@@ -10,9 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Author {
 
     @Id
-    String id;
-
-    String authorName;
+    private String id;
+    private String authorName;
 
     public Author(String id, String authorName) {
         this.id = id;
