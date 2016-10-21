@@ -39,6 +39,8 @@ dependencies {
     compile 'org.springframework.session:spring-session'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.data:spring-data-rest-hal-browser'
+    compile "org.projectlombok:lombok:1.16.10"
 
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 

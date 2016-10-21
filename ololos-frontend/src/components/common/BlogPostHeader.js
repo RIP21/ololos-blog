@@ -7,7 +7,8 @@ const BlogPostHeader = ({post, open = false}) => {
       {!open ?
         <h2 className="blog-post-title"><Link to={`/post/${post.id}`}>{post.title}</Link></h2>
         : <h2 className="blog-post-title"> {post.title}</h2>}
-      <p className="blog-post-meta">{post.postdate.toString()} by <Link to={`/author/${post.authorId}`}>{post.authorId}</Link>
+      <p className="blog-post-meta">{post.postdate.toString()} by <Link
+        to={`api/author/${post.author.id}`}>{post.author.id}</Link>
       </p>
     </div>
   );

@@ -98,7 +98,7 @@ EditPostPage.contextTypes = {
 function mapStateToProps(state, ownProps) {
 
   const postId = ownProps.params.id;
-  let post = {id: '', authorId: '', body: '', postdate: '', title: ''};
+  let post = {id: '', author: {} , body: '', postdate: '', title: ''};
 
   if (postId && state.posts.length > 0) {
     post = getById(state.posts, postId);

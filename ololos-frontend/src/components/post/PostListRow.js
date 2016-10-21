@@ -8,7 +8,7 @@ const PostListRow = ({post, onDelete}) => {
       <td><Link to={'/post/edit/' + post.id}>Edit</Link></td>
       <td>{post.id}</td>
       <td><Link to={'/post/' + post.id}>{post.title}</Link></td>
-      <td>{post.authorId}</td>
+      <td>{post.author.authorName}</td>
       <td>{post.postdate.toString()}</td>
     </tr>
   );

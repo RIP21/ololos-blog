@@ -39,8 +39,8 @@ class MongoTestDataInserting extends Specification {
             Author second = new Author("LINA", "Lina Oleynik")
             authorRepository.save(first)
             authorRepository.save(second)
-            postRepository.save(new Post("title 1", "# Somebody post 1", new Date(), first))
-            postRepository.save(new Post("title 2", "# Somebody post 2", new Date(), second))
+            postRepository.save(new Post("title-1","title 1", "# Somebody post 1", new Date(), first))
+            postRepository.save(new Post("title-2","title 2", "# Somebody post 2", new Date(), second))
 
         then:
             userRepository.findAll().size() == 2;

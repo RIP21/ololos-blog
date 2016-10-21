@@ -15,8 +15,13 @@ export function loadPosts() {
   };
 }
 
+const getAuthorByAuthentication = (getState) => {
+  return getState().authors.filter( author => author.id === getState().authentication.username)[0];
+};
+
 export function createPost(post) {
-  return dispatch => {
+  return (dispatch, getState) => {
+    post.author = getAuthorByAuthentication(getState);
     return dispatch({
       type: types.CREATE_POST,
       payload: BlogPostApi.save(post)

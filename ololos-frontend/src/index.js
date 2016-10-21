@@ -7,6 +7,7 @@ import {Provider} from "react-redux";
 import {Router, browserHistory} from "react-router";
 import routes from "./routes";
 import {loadPosts} from './actions/postActions';
+import {loadAuthors} from './actions/authorsActions';
 import {setupAxiosInterceptors} from './axios';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/toastr/build/toastr.min.css";
@@ -16,6 +17,7 @@ import {syncHistoryWithStore} from 'react-router-redux';
 
 const store = configureStore();
 store.dispatch(loadPosts());
+store.dispatch(loadAuthors());
 
 setupAxiosInterceptors();
 

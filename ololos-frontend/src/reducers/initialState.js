@@ -1,5 +1,6 @@
 export default {
   posts: [],
+  authors: [],
   ajaxCallsInProgress: 0,
   isAuthenticated: false,
   username: null,

@@ -1,9 +1,9 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-export default function postReducer(state = initialState.posts, action) {
+export default function authorReducer(state = initialState.authors, action) {
   switch (action.type) {
-
+/*
     case `${types.CREATE_POST}_PENDING`:
       return state;
     case `${types.CREATE_POST}_FULFILLED`:
@@ -23,13 +23,13 @@ export default function postReducer(state = initialState.posts, action) {
     case `${types.DELETE_POST}_FULFILLED`:
       return [...state.filter(post => post.id !== action.payload.data.id)];
     case `${types.DELETE_POST}_REJECTED`:
-      return state;
+      return state;*/
 
-    case `${types.LOAD_POSTS}_PENDING`:
+    case `${types.LOAD_AUTHORS}_PENDING`:
       return state;
-    case `${types.LOAD_POSTS}_FULFILLED`:
-      return action.payload.data._embedded.posts;
-    case `${types.LOAD_POSTS}_REJECTED`:
+    case `${types.LOAD_AUTHORS}_FULFILLED`:
+      return action.payload.data._embedded.authors;
+    case `${types.LOAD_AUTHORS}_REJECTED`:
       return state;
 
     default:

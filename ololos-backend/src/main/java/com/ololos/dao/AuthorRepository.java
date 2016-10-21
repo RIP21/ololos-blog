@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * Created by Andrii_Los on 10/17/2016.
  */
 @Repository
-@RepositoryRestResource(collectionResourceRel = "authors", path = "authors")
+@RepositoryRestResource
 public interface AuthorRepository extends MongoRepository<Author, String> {
 }

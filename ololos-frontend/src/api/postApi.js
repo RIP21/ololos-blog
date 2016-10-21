@@ -16,7 +16,7 @@ class PostApi {
 
 
   static deletePost(postId) {
-    return axios.delete(`/api/posts${postId}`);
+    return axios.put(`/api/posts/${postId}`, {});
   }
 
 
