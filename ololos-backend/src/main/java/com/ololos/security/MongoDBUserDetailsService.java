@@ -24,7 +24,7 @@ public class MongoDBUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserDetails loadedUser;
         try {
-            User user = userRepository.findOne("RIP21");
+            User user = userRepository.findOne(username);
             loadedUser = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getRoles());
         } catch (Exception repositoryProblem) {
             throw new InternalAuthenticationServiceException(repositoryProblem.getMessage(), repositoryProblem);

@@ -13,6 +13,10 @@ public class Author {
     private String id;
     private String authorName;
 
+    public Author(String id) {
+        this.id = id;
+    }
+
     public Author(String id, String authorName) {
         this.id = id;
         this.authorName = authorName;

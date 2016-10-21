@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import BlogPostApi from '../api/mockBlogpostApi';
+import BlogPostApi from '../api/postApi';
 import * as Exception from './../exceptions/exceptions';
 
 

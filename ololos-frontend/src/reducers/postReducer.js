@@ -28,7 +28,8 @@ export default function postReducer(state = initialState.posts, action) {
     case `${types.LOAD_POSTS}_PENDING`:
       return state;
     case `${types.LOAD_POSTS}_FULFILLED`:
-      return action.payload;
+      debugger;
+      return action.payload.data._embedded.posts;
     case `${types.LOAD_POSTS}_REJECTED`:
       return state;
 

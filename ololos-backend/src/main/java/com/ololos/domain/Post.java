@@ -25,7 +25,7 @@ public class Post {
         this.body = body;
         this.postdate = postdate;
         this.author = author;
-    }
+    }d
 
     public Post(String id, String title, String body, Date postdate, Author author) {
         this.id = id;

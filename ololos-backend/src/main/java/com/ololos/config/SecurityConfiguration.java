@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.NullRequestCache;
 
 @Configuration
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -27,12 +27,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/session").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/api/**").permitAll()
+                .antMatchers(HttpMethod.PUT, "/api/**").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/**").permitAll()
                 .and()
                 .requestCache()
-                .requestCache(new HttpSessionRequestCache())
+                .requestCache(new NullRequestCache())
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .and().csrf().disable();
