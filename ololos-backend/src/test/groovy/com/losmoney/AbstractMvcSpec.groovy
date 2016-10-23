@@ -1,22 +1,18 @@
 package com.losmoney
 
 import com.ololos.OlolosWebappApplication
-import org.springframework.boot.test.SpringApplicationContextLoader
+import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers
 import org.springframework.session.MapSessionRepository
-import org.springframework.session.web.http.HeaderHttpSessionStrategy
+import org.springframework.session.web.http.CookieHttpSessionStrategy
 import org.springframework.session.web.http.SessionRepositoryFilter
-import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
 import spock.lang.Shared
 import spockmvc.SpockMvcSpec
 
-@ContextConfiguration(
-        loader = SpringApplicationContextLoader,
-        classes = [OlolosWebappApplication]
-)
+@SpringApplicationConfiguration(classes = OlolosWebappApplication.class)
 
 abstract class AbstractMvcSpec extends SpockMvcSpec {
 
@@ -26,7 +22,7 @@ abstract class AbstractMvcSpec extends SpockMvcSpec {
     @Override
     MockMvc buildMockMvc(WebApplicationContext wac) {
         def sessionFilter = new SessionRepositoryFilter(sessionRepository)
-        sessionFilter.httpSessionStrategy = new HeaderHttpSessionStrategy()
+        sessionFilter.httpSessionStrategy = new CookieHttpSessionStrategy()
 
         MockMvcBuilders
                 .webAppContextSetup(wac)

@@ -1,6 +1,6 @@
-package com.losmoney
+package com.losmoney.mongo
 
-import com.ololos.OlolosWebappApplication
+import com.losmoney.AbstractMvcSpec
 import com.ololos.dao.AuthorRepository
 import com.ololos.dao.PostRepository
 import com.ololos.dao.UserRepository
@@ -8,17 +8,12 @@ import com.ololos.domain.Author
 import com.ololos.domain.Post
 import com.ololos.domain.User
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.security.core.authority.SimpleGrantedAuthority
-import spock.lang.Specification
-
 /**
  * Created by Andrii_Los on 10/17/2016.
  */
 
-
-@SpringApplicationConfiguration(classes = [OlolosWebappApplication])
-class MongoTestDataInserting extends Specification {
+class MongoTestDataInserting extends AbstractMvcSpec {
 
     @Autowired
     AuthorRepository authorRepository;

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import dateformat from 'dateformat';
 
 const PostListRow = ({post, onDelete}) => {
   return (
@@ -9,7 +10,7 @@ const PostListRow = ({post, onDelete}) => {
       <td>{post.id}</td>
       <td><Link to={'/post/' + post.id}>{post.title}</Link></td>
       <td>{post.author.authorName}</td>
-      <td>{post.postdate.toString()}</td>
+      <td>{dateformat(post.postdate)}</td>
     </tr>
   );
 };

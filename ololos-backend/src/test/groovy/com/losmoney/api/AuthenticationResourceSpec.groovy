@@ -1,13 +1,26 @@
 package com.losmoney.api
 
 import com.losmoney.AbstractMvcSpec
+import com.ololos.dao.UserRepository
+import com.ololos.domain.User
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 import spock.lang.Shared
 import spock.lang.Stepwise
 import spockmvc.RequestParams
 
+import javax.servlet.http.Cookie
+
 @Stepwise
 class AuthenticationResourceSpec extends AbstractMvcSpec {
+
+    @Autowired
+    UserRepository userRepository
+
+    def setup() {
+      userRepository.save(new User("RIP21", "RIP21", "pass", [new SimpleGrantedAuthority("ADMIN")]))
+    }
 
     @Shared
     String token
@@ -39,7 +52,7 @@ class AuthenticationResourceSpec extends AbstractMvcSpec {
 
     def "get session"() {
         when:
-            def res = get('/api/session', new RequestParams(authToken: token))
+            def res = get('/api/session', new RequestParams(cookies: [new Cookie("SESSION", token)]))
 
         then:
             res.status == HttpStatus.OK
@@ -48,13 +61,13 @@ class AuthenticationResourceSpec extends AbstractMvcSpec {
 
     def "delete session"() {
         when:
-            def res = delete('/api/session', new RequestParams(authToken: token))
+            def res = delete('/api/session', new RequestParams(cookies: [new Cookie("SESSION", token)]))
 
         then:
             res.status == HttpStatus.OK
 
         when:
-            res = get('/api/session', new RequestParams(authToken: token))
+            res = get('/api/session', new RequestParams(cookies: [new Cookie("SESSION", token)]))
 
         then:
             res.status == HttpStatus.OK

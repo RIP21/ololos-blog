@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-
+        classpath "se.transmode.gradle:gradle-docker:1.2"
     }
 }
 
@@ -17,6 +17,7 @@ apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'eclipse'
+apply plugin: 'docker'
 
 jar {
     baseName = 'ololos'
@@ -48,6 +49,7 @@ dependencies {
     testCompile 'org.springframework.security:spring-security-test'
     testCompile 'org.spockframework:spock-spring'
     testCompile 'com.geowarin:spring-spock-mvc:0.2.1'
+    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "1.50.3"
 }
 
 eclipse {
@@ -65,5 +67,19 @@ jar {
 }
 
 jar.dependsOn(':ololos-frontend:assemble')
+
+task buildDocker(type: Docker) {
+    baseImage = 'develar/java:latest'
+    push = true
+    tag = 'rip21/ololos-blog'
+    addFile {
+        from jar
+        rename {'app.jar'}
+    }
+    entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
+    exposePort(8080)
+}
+
+buildDocker.dependsOn(build)
 
 

@@ -26,6 +26,9 @@ const Navigation = ({onLogout}) => {
     </div>);
 };
 
+Navigation.propTypes = {
+  onLogout: React.PropTypes.func.isRequired
+};
 
 export default Navigation;
 
