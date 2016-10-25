@@ -1,10 +1,14 @@
 import React, {PropTypes} from 'react';
-import ReactMarkdown from 'react-markdown';
+import Remarkable from 'remarkable';
 
 const BlogPostBody = ({post}) => {
 
+  function addImgResponsive(htmlBody) {
+    return htmlBody.replace(new RegExp('<img', 'g'), '<img class="img-responsive"');
+  }
+
   return (
-      <ReactMarkdown source={post.body}/>
+    <div dangerouslySetInnerHTML={{__html: addImgResponsive(new Remarkable().render(post.body))}}></div> //eslint-disable-line
   );
 };
 

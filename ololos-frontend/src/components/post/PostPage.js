@@ -4,6 +4,7 @@ import {bindActionCreators} from "redux";
 import * as postActions from "../../actions/postActions";
 import {getById} from "../../selector/selectors";
 import BlogPost from "../../components/common/BlogPost";
+import DisqusThread from 'react-disqus-thread';
 
 
 class PostPage extends React.Component {
@@ -29,6 +30,10 @@ class PostPage extends React.Component {
     return (
       <div className="blog-main">
         <BlogPost post={this.state.post} open/>
+        <DisqusThread shortname="ololos"
+                      identifier={this.props.post.id}
+                      title={this.props.post.title}
+        />
       </div>
     );
   }
@@ -44,7 +49,7 @@ PostPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   const postId = ownProps.params.id;
-  let post = {id: '', authorId: '', body: '', postdate: '', title: ''};
+  let post = {id: '', author: {id: '', authorName: ''}, body: '', postdate: '', title: ''};
 
   if (postId && state.posts.length > 0) {
     post = getById(state.posts, postId);

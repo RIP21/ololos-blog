@@ -12,10 +12,8 @@ export function login(username, password) {
     return dispatch({
       type: types.LOGIN,
       payload: axios.post('/api/session', {username, password})
-    }).then(response => {
-      localStorage.setItem('auth-token', response.value.headers['x-auth-token']);
-      let redirect = getState().routing.locationBeforeTransitions.query.redirect;
-      redirect ? browserHistory.push(redirect) : browserHistory.push("/");//reads query params of redirect
+    }).then(() => {
+      redirectAfterSuccess(getState);
       toastr.success("Login success!");
     }).catch(error => toastr.error(error));
   };
@@ -31,7 +29,7 @@ export function logout() {
 }
 
 export function getSession() {
-  return dispatch => {
+  return (dispatch) => {
     return dispatch({
       type: types.GET_SESSION,
       payload: axios.get('/api/session')
@@ -39,10 +37,7 @@ export function getSession() {
   };
 }
 
-export function redirectToLoginWithMessage(messageKey) {
-  return (dispatch, getState) => {
-    const currentPath = getState().routing.locationBeforeTransitions.pathname;
-    dispatch(displayAuthError(messageKey));
-    browserHistory.replace({pathname: '/login', state: {nextPathname: currentPath}});
-  };
-}
+const redirectAfterSuccess = (getState) => {
+  let redirect = getState().routing.locationBeforeTransitions.query.redirect;
+  redirect ? browserHistory.push(redirect) : browserHistory.push("/");//reads query params of redirect
+};
