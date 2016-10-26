@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import dateformat from 'dateformat';
+import React, {PropTypes} from 'react';
 
 const PostListRow = ({post, onDelete}) => {
   return (

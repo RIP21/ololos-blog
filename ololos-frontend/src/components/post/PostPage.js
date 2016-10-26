@@ -1,10 +1,12 @@
-import React, {PropTypes} from "react";
 import {connect} from "react-redux";
+import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
-import * as postActions from "../../actions/postActions";
-import {getById} from "../../selector/selectors";
-import BlogPost from "../../components/common/BlogPost";
+import objectAssign from 'object-assign';
 import DisqusThread from 'react-disqus-thread';
+import {getById} from "../../selector/selectors";
+import * as Empty from '../../constants/emptyEntities';
+import BlogPost from "../../components/common/BlogPost";
+import * as postActions from "../../actions/postActions";
 
 
 class PostPage extends React.Component {
@@ -12,7 +14,7 @@ class PostPage extends React.Component {
     super(props, context);
 
     this.state = {
-      post: Object.assign({}, props.post),
+      post: objectAssign({}, props.post),
       errors: {},
       saving: false,
     };
@@ -49,7 +51,7 @@ PostPage.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   const postId = ownProps.params.id;
-  let post = {id: '', author: {id: '', authorName: ''}, body: '', postdate: '', title: ''};
+  let post = Empty.POST;
 
   if (postId && state.posts.length > 0) {
     post = getById(state.posts, postId);

@@ -1,7 +1,7 @@
-import * as types from './actionTypes';
-import {browserHistory} from 'react-router';
 import axios from 'axios';
 import toastr from 'toastr';
+import {browserHistory} from 'react-router';
+import * as types from '../constants/actionTypes';
 
 export function displayAuthError(message) {
   return {type: types.ERROR_MESSAGE, message};

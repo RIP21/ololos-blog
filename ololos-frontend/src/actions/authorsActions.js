@@ -1,5 +1,5 @@
-import * as types from './actionTypes';
 import AuthorsApi from '../api/authorsApi';
+import * as types from '../constants/actionTypes';
 import * as Exception from './../exceptions/exceptions';
 
 

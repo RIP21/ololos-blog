@@ -17,6 +17,8 @@ public class Post {
     private String id;
     private String title;
     private String body;
+    private String description;
+    private String previewPic;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date postdate;
     private Author author;

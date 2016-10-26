@@ -4,6 +4,7 @@ import objectAssign from "object-assign";
 import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import {getById} from "../../selector/selectors";
+import * as Empty from '../../constants/emptyEntities';
 import * as postActions from "../../actions/postActions";
 import EditPostForm from '../../components/post/EditPostForm';
 
@@ -13,7 +14,7 @@ class EditPostPage extends React.Component {
     super(props, context);
 
     this.state = {
-      post: Object.assign({}, props.post),
+      post: objectAssign({}, props.post),
       errors: {},
       saving: false
     };
@@ -98,7 +99,7 @@ EditPostPage.contextTypes = {
 function mapStateToProps(state, ownProps) {
 
   const postId = ownProps.params.id;
-  let post = {id: '', author: {} , body: '', postdate: '', title: ''};
+  let post = Empty.POST;
 
   if (postId && state.posts.length > 0) {
     post = getById(state.posts, postId);

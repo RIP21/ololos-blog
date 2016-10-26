@@ -1,10 +1,10 @@
-import React, {PropTypes} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
-import * as postActions from "../../actions/postActions";
-import PostList from "./PostList";
-import {browserHistory} from 'react-router';
 import toastr from 'toastr';
+import PostList from "./PostList";
+import {connect} from "react-redux";
+import React, {PropTypes} from "react";
+import {bindActionCreators} from "redux";
+import {browserHistory} from 'react-router';
+import * as postActions from "../../actions/postActions";
 import ToastExceptionsShower from '../../service/toastWrapper';
 import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
