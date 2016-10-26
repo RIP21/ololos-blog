@@ -27,6 +27,7 @@ ReactGA.initialize('UA-86360910-1'); // Google Analytics with React
 const logPageView = () => {
   ReactGA.set({page: window.location.pathname});
   ReactGA.pageview(window.location.pathname);
+  window.scrollTo(0, 0);
 };
 
 // Create an enhanced history that syncs navigation events with the store
