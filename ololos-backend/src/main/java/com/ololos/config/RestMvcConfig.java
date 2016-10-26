@@ -4,6 +4,7 @@ import com.ololos.dao.PostRepository;
 import com.ololos.domain.Author;
 import com.ololos.domain.Post;
 import com.ololos.domain.User;
+import com.ololos.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -37,12 +38,14 @@ public class RestMvcConfig extends RepositoryRestConfigurerAdapter {
 class PostEventHandler {
 
     @Autowired
+    PostService postService;
+    @Autowired
     private PostRepository postRepository;
 
     @HandleBeforeCreate
     public void handlePostCreate(Post post) {
-        if(postRepository.findByTitle(post.getTitle()).size() == 0) {
-            post.setId(post.getTitle());
+        post.setId(postService.generateIdFromTheTitle(post.getTitle()));
+        if (postRepository.findOne(post.getId()) == null) {
             post.setPostdate(new Date());
         } else throw new DuplicateKeyException("Unable to save post. Title duplication detected, please change it");
     }

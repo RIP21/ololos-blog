@@ -14,6 +14,7 @@ import "../node_modules/toastr/build/toastr.min.css";
 import "../node_modules/simplemde/dist/simplemde.min.css";
 import "./styles/styles.css";
 import {syncHistoryWithStore} from 'react-router-redux';
+import ReactGA from 'react-ga';
 
 const store = configureStore();
 store.dispatch(loadPosts());
@@ -21,12 +22,19 @@ store.dispatch(loadAuthors());
 
 setupAxiosInterceptors();
 
+ReactGA.initialize('UA-86360910-1'); // Google Analytics with React
+
+const logPageView = () => {
+  ReactGA.set({page: window.location.pathname});
+  ReactGA.pageview(window.location.pathname);
+};
+
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <Provider store={store}>
-    <Router history={history} routes={routes}/>
+    <Router history={history} routes={routes} onUpdate={logPageView}/>
   </Provider>,
   document.getElementById('app')
 );

@@ -1,6 +1,5 @@
-package com.losmoney
+package com.ololos
 
-import com.ololos.OlolosWebappApplication
 import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers
 import org.springframework.session.MapSessionRepository

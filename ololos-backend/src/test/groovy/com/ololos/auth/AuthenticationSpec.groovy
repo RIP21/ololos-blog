@@ -1,6 +1,6 @@
-package com.losmoney.auth
+package com.ololos.auth
 
-import com.losmoney.AbstractMvcSpec
+import com.ololos.AbstractMvcSpec
 import org.springframework.http.HttpStatus
 import org.springframework.security.test.context.support.WithMockUser
 

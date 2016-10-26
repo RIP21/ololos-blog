@@ -1,6 +1,6 @@
-package com.losmoney.mongo
+package com.ololos.mongo
 
-import com.losmoney.AbstractMvcSpec
+import com.ololos.AbstractMvcSpec
 import com.ololos.dao.AuthorRepository
 import com.ololos.dao.PostRepository
 import com.ololos.dao.UserRepository

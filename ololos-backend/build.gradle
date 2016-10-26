@@ -42,8 +42,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'org.springframework.data:spring-data-rest-hal-browser'
     compile "org.projectlombok:lombok:1.16.10"
-
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+    compile group: 'com.ibm.icu', name: 'icu4j', version: '57.1'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.security:spring-security-test'

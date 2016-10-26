@@ -1,6 +1,6 @@
-package com.losmoney.api
+package com.ololos.api
 
-import com.losmoney.AbstractMvcSpec
+import com.ololos.AbstractMvcSpec
 import com.ololos.dao.UserRepository
 import com.ololos.domain.User
 import org.springframework.beans.factory.annotation.Autowired
