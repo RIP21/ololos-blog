@@ -1,7 +1,7 @@
 import React, {PropTypes} from "react";
 import TextInput from '../common/TextInput';
 
-const LoginForm = ({credentials, onChange, errorMessage, onLogin}) => {
+const LoginForm = ({credentials, onChange, onLogin}) => {
   return (
     <form>
       <h1>Login page</h1>
@@ -19,7 +19,6 @@ const LoginForm = ({credentials, onChange, errorMessage, onLogin}) => {
         label="Password"
         value={credentials.password}
         onChange={onChange}
-        errorMessage={errorMessage}
       />
 
       <input
@@ -36,7 +35,6 @@ LoginForm.propTypes = {
   credentials: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onLogin: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
 };
 
 export default LoginForm;

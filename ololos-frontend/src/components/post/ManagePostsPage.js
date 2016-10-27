@@ -5,7 +5,6 @@ import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import {browserHistory} from 'react-router';
 import * as postActions from "../../actions/postActions";
-import ToastExceptionsShower from '../../service/toastWrapper';
 import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
 class ManagePostsPage extends React.Component {
@@ -23,9 +22,6 @@ class ManagePostsPage extends React.Component {
     this.props.actions.deletePost(post.id)
       .then(() => {
         toastr.success('Post deleted');
-      })
-      .catch(error => {
-        ToastExceptionsShower.show(error);
       });
   }
 

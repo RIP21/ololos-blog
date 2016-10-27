@@ -1,4 +1,4 @@
-import initialState from './initialState';
+import initialState from '../constants/initialState';
 import * as types from '../constants/actionTypes';
 
 const {isAuthenticated, username, errorMessage, loading} = initialState;

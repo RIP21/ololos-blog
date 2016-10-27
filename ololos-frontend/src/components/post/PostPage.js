@@ -23,7 +23,7 @@ class PostPage extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.post.id != nextProps.post.id) {
-      // Necessary to populate form when existing author is loaded directly.
+      // Necessary to populate form when existing post is loaded directly.
       this.setState({post: Object.assign({}, nextProps.post)});
     }
   }

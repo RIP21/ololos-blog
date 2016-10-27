@@ -5,6 +5,7 @@ import Footer from './common/Footer';
 import {connect} from 'react-redux';
 import toastr from 'toastr';
 import {getSession, logout} from '../actions/authenticationActions';
+import {browserHistory} from 'react-router';
 
 class App extends React.Component {
 
@@ -20,7 +21,10 @@ class App extends React.Component {
   onLogout(event) {
     event.preventDefault();
     this.props.logout()
-      .then(toastr.success("Logout success!"));
+      .then(() => {
+        toastr.success("Logout success!");
+        browserHistory.push('/');
+      });
   }
 
 

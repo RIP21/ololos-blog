@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from 'redux';
 import * as authenticationActions from "../../actions/authenticationActions";
@@ -27,14 +28,20 @@ class LoginPage extends React.Component {
   onLogin(event) {
     const {login, password} = this.state.credentials;
     event.preventDefault();
-    this.props.actions.login(login, password);
+    this.props.actions.login(login, password).then(() => {
+      // redirectAfterSuccess(getState);
+      toastr.success("Login success!");
+    }).catch(error => toastr.error(error));
   }
 
+  /* redirectAfterSuccess(getState) {
+   let redirect = getState().routing.locationBeforeTransitions.query.redirect;
+   redirect ? browserHistory.push(redirect) : browserHistory.push("/");//reads query params of redirect
+   }*/
 
   render() {
     return (
       <LoginForm credentials={this.state.credentials}
-                 errorMessage={this.props.errorMessage}
                  onChange={this.onChange}
                  onLogin={this.onLogin}
       />
@@ -59,6 +66,5 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(authenticationActions, dispatch)
   };
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

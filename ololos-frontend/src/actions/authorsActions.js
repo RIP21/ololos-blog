@@ -1,6 +1,6 @@
+import toastr from 'toastr';
 import AuthorsApi from '../api/authorsApi';
 import * as types from '../constants/actionTypes';
-import * as Exception from './../exceptions/exceptions';
 
 
 export function loadAuthors() {
@@ -8,9 +8,8 @@ export function loadAuthors() {
     return dispatch({
       type: types.LOAD_AUTHORS,
       payload: AuthorsApi.getAll()
-        .catch((error) => {
-          throw new Exception.Error(error);
-        })
+    }).catch((error) => {
+      toastr.error(error);
     });
   };
 }
@@ -20,9 +19,6 @@ export function createAuthor(author) {
     return dispatch({
       type: types.CREATE_AUTHOR,
       payload: AuthorsApi.save(author)
-        .catch((error) => {
-          throw new Exception.Error(error);
-        })
     });
   };
 }
@@ -32,9 +28,6 @@ export function updateAuthor(post) {
     return dispatch({
       type: types.UPDATE_AUTHOR,
       payload: AuthorsApi.save(post)
-        .catch((error) => {
-          throw new Exception.Error(error);
-        })
     });
   };
 }
@@ -44,9 +37,6 @@ export function deleteAuthor(postId) {
     return dispatch({
       type: types.DELETE_AUTHOR,
       payload: AuthorsApi.deleteAuthor(postId)
-        .catch((error) => {
-          throw new Exception.Error(error);
-        })
     });
   };
 }
