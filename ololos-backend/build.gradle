@@ -43,10 +43,11 @@ dependencies {
     compile 'org.springframework.data:spring-data-rest-hal-browser'
     compile "org.projectlombok:lombok:1.16.10"
     compile group: 'com.ibm.icu', name: 'icu4j', version: '57.1'
+    compile('org.spockframework:spock-core:1.1-groovy-2.4-rc-2')
+    compile('org.spockframework:spock-spring:1.1-groovy-2.4-rc-2')
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.security:spring-security-test'
-    testCompile 'org.spockframework:spock-spring'
     testCompile 'com.geowarin:spring-spock-mvc:0.2.1'
     testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "1.50.3"
 }

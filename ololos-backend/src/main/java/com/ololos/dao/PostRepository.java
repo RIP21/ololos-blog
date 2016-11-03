@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by Andrii_Los on 10/17/2016.
- */
 @Repository
 @RepositoryRestResource
 public interface PostRepository extends MongoRepository<Post, String> {

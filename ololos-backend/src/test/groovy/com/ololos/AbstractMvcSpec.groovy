@@ -1,6 +1,6 @@
 package com.ololos
 
-import org.springframework.boot.test.SpringApplicationConfiguration
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers
 import org.springframework.session.MapSessionRepository
 import org.springframework.session.web.http.CookieHttpSessionStrategy
@@ -11,8 +11,7 @@ import org.springframework.web.context.WebApplicationContext
 import spock.lang.Shared
 import spockmvc.SpockMvcSpec
 
-@SpringApplicationConfiguration(classes = OlolosWebappApplication.class)
-
+@SpringBootTest
 abstract class AbstractMvcSpec extends SpockMvcSpec {
 
     @Shared

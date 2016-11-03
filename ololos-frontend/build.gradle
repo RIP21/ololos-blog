@@ -11,10 +11,8 @@ node {
     download = true
 }
 
-task runBuild(type: NodeTask) {
+task runBuild(type: NpmTask) {
     args = ['run', 'build']
-    ignoreExitValue = true
 }
-
 
 assemble.dependsOn(runBuild)
