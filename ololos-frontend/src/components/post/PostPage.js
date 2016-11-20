@@ -6,7 +6,7 @@ import DisqusThread from 'react-disqus-thread';
 import {getById} from "../../selector/selectors";
 import * as Empty from '../../constants/emptyEntities';
 import BlogPost from "../../components/common/BlogPost";
-import * as postActions from "../../actions/postActions";
+import * as postActions from "../../actions/post";
 
 
 class PostPage extends React.Component {

@@ -5,7 +5,7 @@ import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import {getById} from "../../selector/selectors";
 import * as Empty from '../../constants/emptyEntities';
-import * as postActions from "../../actions/postActions";
+import * as postActions from "../../actions/post";
 import EditPostForm from '../../components/post/EditPostForm';
 
 class EditPostPage extends React.Component {

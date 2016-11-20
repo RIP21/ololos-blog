@@ -3,7 +3,7 @@ import BlogHeader from "../common/BlogHeader";
 import HomePageRow from "./HomePageRow";
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
-import * as postsActions  from '../../actions/postActions';
+import * as postsActions  from '../../actions/post';
 import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
 class HomePage extends React.Component {

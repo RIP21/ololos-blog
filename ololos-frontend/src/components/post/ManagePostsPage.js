@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import React, {PropTypes} from "react";
 import {bindActionCreators} from "redux";
 import {browserHistory} from 'react-router';
-import * as postActions from "../../actions/postActions";
+import * as postActions from "../../actions/post";
 import {sortNewPostsFirstSelector} from '../../selector/selectors';
 
 class ManagePostsPage extends React.Component {

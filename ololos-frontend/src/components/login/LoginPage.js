@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from 'redux';
-import * as authenticationActions from "../../actions/authenticationActions";
+import * as authenticationActions from "../../actions/authentication";
 import LoginForm from './LoginForm';
 
 class LoginPage extends React.Component {

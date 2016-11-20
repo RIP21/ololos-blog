@@ -4,7 +4,7 @@ import Navigation from './common/Navigation';
 import Footer from './common/Footer';
 import {connect} from 'react-redux';
 import toastr from 'toastr';
-import {getSession, logout} from '../actions/authenticationActions';
+import {getSession, logout} from '../actions/authentication';
 import {browserHistory} from 'react-router';
 
 class App extends React.Component {
