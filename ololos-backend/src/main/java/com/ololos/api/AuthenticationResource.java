@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 
 @RestController()
-@RequestMapping("/api/session")
+@RequestMapping("/session")
 public class AuthenticationResource {
     @Autowired
     AuthenticationManager authenticationManager;

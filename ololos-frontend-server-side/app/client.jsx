@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createRoutes from 'routes';
-import * as types from 'types';
 import configureStore from 'store/configureStore';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
+import * as types from "./constants/actionTypes";
 
 // Grab the state from a global injected into
 // server-generated HTML

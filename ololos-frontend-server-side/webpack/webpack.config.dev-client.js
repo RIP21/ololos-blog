@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var styleLintPlugin = require('stylelint-webpack-plugin');
 var assetsPath = path.join(__dirname, '..', 'public', 'assets');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
+var autoprefixer = require('autoprefixer');
 
 var commonLoaders = [
   {
@@ -29,25 +30,14 @@ var commonLoaders = [
         limit: 10000,
     }
   },
+  {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
   { test: /\.html$/, loader: 'html-loader' }
 ];
 
-var postCSSConfig = function () {
-  return [
-    require('postcss-import')({
-      path: path.join(__dirname, '..', 'app', 'css'),
-      addDependencyTo: webpack // for hot-reloading
-    }),
-    require('postcss-cssnext')({
-      browsers: ['> 1%', 'last 2 versions']
-    }),
-    require('postcss-reporter')({ clearMessages: true })
-  ];
-};
-
 module.exports = {
     // eval - Each module is executed with eval and //@ sourceURL.
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     // The configuration for the client
     name: 'browser',
     /* The entry point of the bundle
@@ -85,9 +75,7 @@ module.exports = {
     },
     module: {
       loaders: commonLoaders.concat([
-        { test: /\.css$/,
-          loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-        }
+        {test: /(\.css)$/, loaders: ['style', 'css?sourceMap', 'postcss']},
       ])
     },
     resolve: {
@@ -107,5 +95,5 @@ module.exports = {
           files: '**/*.?(sa|sc|c)ss'
         })
     ],
-    postcss: postCSSConfig
+    postcss: ()=> [autoprefixer]
 };

@@ -28,6 +28,8 @@ var commonLoaders = [
         limit: 10000,
     }
   },
+  {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
   { test: /\.html$/, loader: 'html-loader' }
 ];
 

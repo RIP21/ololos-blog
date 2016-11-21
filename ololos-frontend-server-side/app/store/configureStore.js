@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import promiseMiddleware from 'redux-promise-middleware';
 import createLogger from 'redux-logger';
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import {composeWithDevTools} from 'redux-devtools-extension';
 
 /*
@@ -19,9 +18,9 @@ export default function configureStore(initialState, history) {
   let store;
 
   if (__DEVCLIENT__) {
-    middleware.push(createLogger());
+    //middleware.push(createLogger());
     store = createStore(rootReducer, initialState, composeWithDevTools(
-      applyMiddleware(...middleware, reduxImmutableStateInvariant), f => f
+      applyMiddleware(...middleware), f => f
     ));
   } else {
     store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware), f => f));

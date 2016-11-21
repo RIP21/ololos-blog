@@ -1,4 +1,5 @@
 import express from 'express';
+import proxy from 'express-http-proxy';
 import bodyParser from 'body-parser';
 import path from 'path';
 import flash from 'express-flash';
@@ -11,6 +12,8 @@ import helmet from 'helmet';
 
 export default (app) => {
   app.set('port', (process.env.PORT || 3000));
+
+  app.use('/api', proxy('localhost:8080'));
 
   if (ENV === 'production') {
     app.use(gzip());

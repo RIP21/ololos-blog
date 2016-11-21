@@ -1,20 +1,11 @@
-import axios from 'axios';
 import React from 'react';
 import { createMemoryHistory, match } from 'react-router';
 import createRoutes from 'routes';
 import configureStore from 'store/configureStore';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
-import { host, port } from 'config/app';
 import pageRenderer from 'utils/pageRenderer';
+import * as types from "./constants/actionTypes";
 
-
-const clientConfig = {
-  host: process.env.HOSTNAME || 'localhost',
-  port: process.env.PORT || '8080'
-};
-
-// configure baseURL for axios requests (for serverside API calls)
-axios.defaults.baseURL = `http://${host}:${port}`;
 
 /*
  * Export render function to be used in server/config/routes.js
@@ -55,15 +46,17 @@ export default function render(req, res) {
     } else if (props) {
       // This method waits for all render component
       // promises to resolve before returning to browser
+      store.dispatch({ type: types.CREATE_REQUEST });
       preRenderMiddleware(props)
-      .then(data => {
-        const html = pageRenderer(store, props);
-        res.status(200).send(html);
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json(err);
-      });
+        .then(data => {
+          store.dispatch({ type: types.REQUEST_SUCCESS, data });
+          const html = pageRenderer(store, props);
+          res.status(200).send(html);
+        })
+        .catch(err => {
+          console.error(err);
+          res.status(500).json(err);
+        });
     } else {
       res.sendStatus(404);
     }

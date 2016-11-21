@@ -2,7 +2,6 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext } from 'react-router';
-import { trackingID } from '../config/app';
 import Helmet from 'react-helmet';
 
 /*
@@ -19,6 +18,7 @@ const createTrackingScript = trackingID =>
   ga('send', 'pageview');
   </script>`;
 
+const trackingID = "UA-86360910-1";
 const analtyicsScript = createTrackingScript(trackingID);
 
 const createApp = (store, props) => renderToString(
