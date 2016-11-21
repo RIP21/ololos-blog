@@ -1,8 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import {routerMiddleware} from 'react-router-redux';
 import thunk from 'redux-thunk';
 import rootReducer from 'reducers';
 import createLogger from 'redux-logger';
+import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 /*
  * @param {Object} initial state to bootstrap our stores with for server-side rendering
@@ -17,9 +19,8 @@ export default function configureStore(initialState, history) {
 
   if (__DEVCLIENT__) {
     middleware.push(createLogger());
-    store = createStore(rootReducer, initialState, compose(
-      applyMiddleware(...middleware),
-      typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+    store = createStore(rootReducer, initialState, composeWithDevTools(
+      applyMiddleware(...middleware, reduxImmutableStateInvariant), f => f
     ));
   } else {
     store = createStore(rootReducer, initialState, compose(applyMiddleware(...middleware), f => f));

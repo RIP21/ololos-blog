@@ -1,5 +1,5 @@
 import toastr from 'toastr';
-import AuthorsApi from '../api/authorsApi';
+import AuthorsApi from '../api/authors';
 import * as types from '../constants/actionTypes';
 
 

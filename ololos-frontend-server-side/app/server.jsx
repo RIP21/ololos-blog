@@ -3,7 +3,6 @@ import React from 'react';
 import { createMemoryHistory, match } from 'react-router';
 import createRoutes from 'routes';
 import configureStore from 'store/configureStore';
-import * as types from 'types';
 import preRenderMiddleware from 'middlewares/preRenderMiddleware';
 import { host, port } from 'config/app';
 import pageRenderer from 'utils/pageRenderer';
@@ -56,10 +55,8 @@ export default function render(req, res) {
     } else if (props) {
       // This method waits for all render component
       // promises to resolve before returning to browser
-      store.dispatch({ type: types.CREATE_REQUEST });
       preRenderMiddleware(props)
       .then(data => {
-        store.dispatch({ type: types.REQUEST_SUCCESS, data });
         const html = pageRenderer(store, props);
         res.status(200).send(html);
       })

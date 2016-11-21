@@ -1,5 +1,5 @@
 import toastr from 'toastr';
-import BlogPostApi from '../api/postApi';
+import BlogPostApi from '../api/post';
 import * as types from '../constants/actionTypes';
 
 export function loadPosts() {
