@@ -2,7 +2,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext } from 'react-router';
-import { trackingID } from 'config/app';
+import { trackingID } from '../config/app';
 import Helmet from 'react-helmet';
 
 /*

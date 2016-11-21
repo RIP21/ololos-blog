@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import posts from './postReducer';
-import authors from './authorReducer';
-import ajaxCallsInProgress from './ajaxStatusReducer';
-import authentication from './authenticationReducer';
+import posts from './post';
+import authors from './author';
+import ajaxCallsInProgress from './ajaxStatus';
+import authentication from './authentication';
 import {routerReducer} from 'react-router-redux';
 
 const rootReducer = combineReducers({
