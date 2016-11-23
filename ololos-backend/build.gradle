@@ -49,7 +49,7 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.springframework.security:spring-security-test'
     testCompile 'com.geowarin:spring-spock-mvc:0.2.1'
-    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "1.50.3"
+    //testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "1.50.3"
 }
 
 eclipse {
@@ -58,15 +58,6 @@ eclipse {
         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
     }
 }
-
-
-jar {
-    from('../ololos-frontend/dist') {
-        into 'static'
-    }
-}
-
-jar.dependsOn(':ololos-frontend:assemble')
 
 task buildDocker(type: Docker) {
     baseImage = 'develar/java:latest'
