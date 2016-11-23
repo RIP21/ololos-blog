@@ -2,6 +2,7 @@ var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 var assetsPath = path.join(__dirname, '..', 'public', 'assets');
 var publicPath = '/assets/';
@@ -37,8 +38,10 @@ var commonLoaders = [
         limit: 10000,
     }
   },
+  {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
+  {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
   { test: /\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?module!postcss-loader')
+    loader: ExtractTextPlugin.extract('css?sourceMap!postcss')
   }
 ];
 
@@ -155,6 +158,6 @@ module.exports = [
         new webpack.IgnorePlugin(/vertx/),
         new InlineEnviromentVariablesPlugin({ NODE_ENV: 'production' })
     ],
-    postcss: postCSSConfig
+    postcss: () => [autoprefixer]
   }
 ];
