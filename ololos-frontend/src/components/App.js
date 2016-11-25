@@ -6,6 +6,18 @@ import {connect} from 'react-redux';
 import toastr from 'toastr';
 import {getSession, logout} from '../actions/authentication';
 import {browserHistory} from 'react-router';
+import * as PostsActions from "../actions/post";
+import * as AuthorsActions from "../actions/authors";
+import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/toastr/build/toastr.min.css";
+import "../../node_modules/simplemde/dist/simplemde.min.css";
+import "../styles/styles.css";
+
+App.need = [
+  PostsActions.loadPosts,
+  AuthorsActions.loadAuthors
+];
+
 
 class App extends React.Component {
 

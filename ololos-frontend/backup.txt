@@ -1,0 +1,19 @@
+"scripts": {
+    "preinstall": "node tools/nodeVersionCheck.js",
+    "postinstall": "npm run build",
+    "start-message": "babel-node tools/startMessage.js",
+    "prestart": "npm-run-all --parallel start-message remove-dist",
+    "start": "npm-run-all --parallel test:watch run:client run:server lint:watch",
+    "run:server": "babel-node server/index.js",
+    "run:client": "babel-node tools/devServer.js",
+    "lint": "esw webpack.config.* src tools server --color",
+    "lint:watch": "npm run lint -- --watch",
+    "lint:fix": "eslint --ext .js,.jsx src server --fix",
+    "clean-dist": "npm run remove-dist && mkdir dist",
+    "remove-dist": "rimraf ./dist",
+    "prebuild": "npm run clean-dist && npm run lint && npm run test",
+    "build": "babel-node tools/build.js && npm run",
+    "test": "mocha tools/testSetup.js \"./{,!(node_modules)/**/}*.test.js\" --reporter progress",
+    "test:watch": "npm run test -- --watch",
+    "analyze-bundle": "babel-node ./tools/analyzeBundle.js"
+  }
