@@ -24,7 +24,7 @@ public class RestMvcConfig extends RepositoryRestConfigurerAdapter {
         config.exposeIdsFor(Post.class);
         config.exposeIdsFor(Author.class);
         config.exposeIdsFor(User.class);
-//        config.setBasePath("/api");
+        config.setBasePath("/api");
         config.setReturnBodyForPutAndPost(true);
     }
 

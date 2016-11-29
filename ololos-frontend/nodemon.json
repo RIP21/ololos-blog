@@ -1,9 +1,6 @@
 {
   "verbose": false,
   "watch": [
-    "src/helmconfig.js",
-    "src/components/Meta.js",
-    "server",
     "webpack.config.dev-client.js",
     "webpack.config.dev-server.js"
   ],

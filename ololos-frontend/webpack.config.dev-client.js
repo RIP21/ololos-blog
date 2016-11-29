@@ -4,7 +4,10 @@ var path = require("path");
 
 module.exports = {
   resolve: {
-    extensions: ['', '.js', '.jsx', ".ts", ".tsx"]
+    extensions: ['', '.js', '.jsx', '.css'],
+    modulesDirectories: [
+      'src', 'node_modules'
+    ]
   },
   name: 'browser',
   debug: true,

@@ -2,9 +2,10 @@ var webpack = require("webpack");
 var autoprefixer = require("autoprefixer");
 var path = require("path");
 
+
 module.exports = {
   resolve: {
-    extensions: ['', '.js', '.jsx', ".ts", ".tsx"],
+    extensions: ['', '.js', '.jsx'],
     modulesDirectories: [
       "src", "node_modules"
     ]
@@ -43,17 +44,14 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         exclude: path.join(__dirname, '/node_modules/')
       },
-      {test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel']},
       {test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file'},
       {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url?limit=10000&mimetype=application/font-woff"},
       {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
       {test: /\.(jpe?g|png|gif)$/i, loader: 'file?name=[name].[ext]'},
       {test: /\.ico$/, loader: 'file?name=[name].[ext]'},
-      {test: /(\.css|\.scss)$/, loaders: ['style', 'css?sourceMap', 'postcss', 'sass?sourceMap']},
       {test: /\.json$/, loader: 'json'},
       { test: /\.html$/, loader: 'html-loader' }
     ]
-  },
-  postcss: () => [autoprefixer]
+  }
 };

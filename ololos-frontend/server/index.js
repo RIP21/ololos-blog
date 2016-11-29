@@ -80,12 +80,28 @@ app.set('trust proxy', 'loopback');
 //                  If secure is set, and you access your site over HTTP, the cookie will not be set.
 
 
+
+
 const node_env = process.env.NODE_ENV;
 console.log(chalkWarning('--------------------------'));
 console.log(chalkSuccess('===>    Starting Server . . .'));
 console.log(chalkProcessing('===>  Environment: ' + node_env));
 console.log(chalkSuccess(`===>  Listening on port: ${app.get('port')}`));
 app.use(flash());
+
+const App = require(path.resolve(__dirname, '..', 'public', 'assets', 'server.js'))['default'];
+
+  // app.put('/myRoute', myController.handlerMethod);
+  // app.delete('/otherRoute', routeController.handlerMethod);
+
+  // This is where the magic happens. We take the locals data we have already
+  // fetched and seed our stores with data.
+  // App is a function that requires store data and url to initialize and return the React-rendered html string
+  app.get('*', function (req, res, next) {
+    App(req, res);
+  });
+
+
 
 app.listen(app.get('port'), function(err) {
   if (err) {
